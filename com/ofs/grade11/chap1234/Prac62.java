@@ -2,7 +2,7 @@ package com.ofs.grade11.chap1234;
 
 public class Prac62 {
     public static void main (String [] args){
-        int lines = IBIO.inputInt("How many stars lines? ");
+        int lines = IBIO.inputInt("How many stars lines? "); // printing triangle with stars
         String staroutput = "";
         for(int i = 0; i < lines; i++){
             String s = stars2(i+1);

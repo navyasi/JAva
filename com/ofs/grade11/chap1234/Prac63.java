@@ -1,7 +1,7 @@
 package com.ofs.grade11.chap1234;
 
 public class Prac63 {
-    public static void main(String [] args){
+    public static void main(String [] args){    //printing arrow shape with stars
         int lines = IBIO.inputInt("How many lines? ");
         for(int i = lines; i > 0; i--){
             String spaces = spaces3(i);

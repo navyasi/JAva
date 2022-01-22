@@ -10,7 +10,7 @@ public class Prac61 {
 
         }
     public static String stars1 (int x){
-        String starline = "          ";    // printing 10 spaces out
+        String starline = "          ";    // printing 10 spaces out rectangle
         for (int i = 0; i<x; i++){
             starline = starline + "*";
 
