@@ -1,18 +1,21 @@
 package com.ofs.grade11.chap1234;
 
-public class Prac81 {
+public class Prac82 {
     public static void main(String args[])
     {
         String prev = "";
         String aa2 = "";
-        for (int i = 1; i < 100; i++) {
-            for(int j=1;j<100;j++) {
-                for(int k=1;k<100;k++) {
-                    if ( good(i,j) && good(j,k) && good(i,k) ) {
-                        prev = aa2;
-                        aa2 = ascenStr(i, j, k);
-                        if (prev.equals(aa2)) //eliminate duplicates by comparing previous value with current value
-                            IBIO.output(aa2);
+        for (int i = 1; i < 200; i++) {
+            for(int j=1;j<200;j++) {
+                for(int k=1;k<200;k++) {
+                    for(int m = 1; m<200; m++) {
+                        if (good(i, j) && good(j, k) && good(i, k) && good(m, i) && good(m, j) && good(m, k)) {
+                            /*prev = aa2;
+                            aa2 = ascenStr(i, j, k);
+                            if (prev.equals(aa2)) //eliminate duplicates by comparing previous value with current value
+                                IBIO.output(aa2);*/
+                            IBIO.output(i + " " + j + " " + k + " " + m);
+                        }
                     }
                 }
             }
@@ -23,8 +26,8 @@ public class Prac81 {
         int y = (int) (Math.sqrt(x)+.5);
         return ( y * y == x );
     }
-
-    static String ascenStr(int a, int b, int c){  // put in ascending order to make all duplicates have same order
+//need to do repetition for 4 numbers edit later
+    /*static String ascenStr(int a, int b, int c){  // put in ascending order to make all duplicates have same order
         String s ="";
         if (a<b && a<c){
             if (b<c){
@@ -51,5 +54,5 @@ public class Prac81 {
             }
         }
         return s;
-    }
+    }*/
 }

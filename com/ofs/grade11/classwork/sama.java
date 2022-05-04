@@ -1,4 +1,4 @@
-package com.ofs.grade11.chap1234;
+package com.ofs.grade11.classwork;
 
 public class sama {
 
