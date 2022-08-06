@@ -49,10 +49,11 @@ public class sortsearchstrings {
         String svalue = a[0];
 
         for(int i = 0; i<a.length; i++){
+            printArray(a);
             svalue = a[i];
             sposition = i;
             for(int j = i+1; j<a.length; j++){
-                if(a[j].compareToIgnoreCase(svalue)<0){
+                if(a[j].compareToIgnoreCase(svalue)<0){ //change to > for descending order
                     svalue = a[j];
                     sposition = j;
                 }
@@ -109,7 +110,7 @@ public class sortsearchstrings {
         System.out.println("\nBubble sort");
         array = clone(original);
         bubbleSortStr( array );
-        printArray(array);
+       // printArray(array);
         System.out.println();
 
         System.out.println("\nSelection sort");

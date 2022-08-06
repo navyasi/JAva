@@ -36,7 +36,7 @@ public class SortingSkeleton
 		int temp;
 		boolean Elements_Swapped = true;
 		while(Elements_Swapped){
-
+			//printArray(a);
 			int j = 0;
 			Elements_Swapped = false;
 			while(j<len - 1){
@@ -45,6 +45,7 @@ public class SortingSkeleton
 					a[j] = a[j+1];
 					a[j+1] = temp;
 					Elements_Swapped = true;
+					printArray(a);
 				}
 				j++;
 
@@ -67,7 +68,7 @@ public class SortingSkeleton
 					a[j] = a[j+1];
 					a[j+1] = temp;
 					elementswapped = true;
-
+					printArray(a);
 				}
 				j++;
 			}
