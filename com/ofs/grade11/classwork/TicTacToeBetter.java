@@ -1,6 +1,6 @@
 package com.ofs.grade11.classwork;
 
-public class TicTacToe {
+public class TicTacToeBetter {
     public static void printBoard(char[][] a) // n*(n+n) = O(n^2)
     {
         int rowLength = a.length;    // number of rows
@@ -53,8 +53,8 @@ public class TicTacToe {
         }
     }
 
-    public static void Oplays(char[][] a, int size) {
-        IBIO.output("Player O turn:");
+    public static void Oplays(char[][] a, int size, char player) {
+        IBIO.output("Player " + player + " turn:");
         int row = IBIO.inputInt("Row: ");
         while (row < 0 || row > size) {
             row = IBIO.inputInt("Error. Enter row again: ");
@@ -67,12 +67,12 @@ public class TicTacToe {
             row = IBIO.inputInt("Space taken, choose a different row: ");
             column = IBIO.inputInt("Space taken, choose a different column: ");
         }
-        a[row - 1][column - 1] = 'O'; //if wanna do tictactoe for non compsci then do row-1 and column-1
+        a[row - 1][column - 1] = player; //if wanna do tictactoe for non compsci then do row-1 and column-1
 
     }
 
-    public static void Xplays(char[][] a, int size) {
-        IBIO.output("Player X turn:");
+    public static void Xplays(char[][] a, int size, char player) {
+        IBIO.output("Player "+ player + " turn:");
         int row = IBIO.inputInt("Row: ");
         while (row < 0 || row > size) {
             row = IBIO.inputInt("Error. Enter row again: ");
@@ -108,61 +108,61 @@ public class TicTacToe {
         return boardNotFull;
     }
 
-    public static boolean playerOWins(char[][] a, int size) {
-        boolean oWins = false;
+    public static boolean playerOWins(char[][] a, int size, char player) {
+        boolean wins = false;
 
         for (int i = 0; i < size; i++) {
             int counter = 0;
             for (int j = 0; j < size; j++) {
-                if (a[i][j] == 'O') {
+                if (a[i][j] == player) {
                     counter++;
                 }
                 if (counter == size) {
-                    oWins = true;
-                    return oWins;
+                    wins = true;
+                    return wins;
                 }
             }
         }
-       for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             int counter = 0;
             for (int j = 0; j < size; j++) {
-                if (a[j][i] == 'O') {
+                if (a[j][i] == player) {
                     counter++;
                 }
                 if (counter == size) {
-                    oWins = true;
-                    return oWins;
+                    wins = true;
+                    return wins;
                 }
             }
         }
         int counter = 0;
         for (int i = 0; i < size; i++) {
-            if (a[i][i] == 'O') {
+            if (a[i][i] == player) {
                 counter++;
             }
             if (counter == size) {
-                oWins = true;
-                return oWins;
+                wins = true;
+                return wins;
             }
         }
         int x = 0;
         int row = 0;
         int column = size-1;
         for (int m = 0; m<size; m++, row++, column--) {
-            if(a[row][column]=='O'){
+            if(a[row][column]==player){
                 x++;
             }
             if (x == size) {
-                oWins = true;
-                return oWins;
+                wins = true;
+                return wins;
             }
             /*i++;
             j--;*/
         }
-        return oWins;
+        return wins;
     }
 
-    public static boolean playerXWins(char[][] a, int size) {
+   /* public static boolean playerXWins(char[][] a, int size) {
         boolean xWins = false;
 
         for (int i = 0; i < size; i++) {
@@ -212,47 +212,47 @@ public class TicTacToe {
         }
         return xWins;
     }
-
-        public static void main(String[] args)
-        {	/* declare and instantiate an array:
+*/
+    public static void main(String[] args)
+    {	/* declare and instantiate an array:
 			dataType[][] arrayName = new dataType[rowSize][columnSize];
 		*/
-            int n = IBIO.inputInt("Input Tic-Tac-Toe board size: ");
-            if (n < 3) {
-                n = 3;
-            }
-            char[][] board = new char[n][n];
-            newGame(board, n);
+        int n = IBIO.inputInt("Input Tic-Tac-Toe board size: ");
+        if (n < 3) {
+            n = 3;
+        }
+        char[][] board = new char[n][n];
+        newGame(board, n);
+        printBoard(board);
+        int count = 0;
+        int positionTotal = n * n;
+        boolean boardNotFull = true;
+
+        while (BoardNotFull(board, n) == true) {
+            Oplays(board, n, 'O');
             printBoard(board);
-            int count = 0;
-            int positionTotal = n * n;
-            boolean boardNotFull = true;
-
-            while (BoardNotFull(board, n) == true) {
-                Oplays(board, n);
-                printBoard(board);
-                if (playerOWins(board, n) == true) {
-                    IBIO.output("Player O WINS!");
-                    System.exit(0);
-                }
-                if (BoardNotFull(board, n) == false) {
-                    IBIO.output("Game Ended: Tie");
-                    System.exit(0);
-                }
-                Xplays(board, n);
-                printBoard(board);
-                if(playerXWins(board,n)==true){
-                    IBIO.output("Player X Wins!");
-                    System.exit(0);
-                }
-                if (BoardNotFull(board, n) == false) {
-                    IBIO.output("Game Ended: Tie");
-                    System.exit(0);
-                }
+            if (playerOWins(board, n, 'O') == true) {
+                IBIO.output("Player O WINS!");
+                System.exit(0);
             }
+            if (BoardNotFull(board, n) == false) {
+                IBIO.output("Game Ended: Tie");
+                System.exit(0);
+            }
+            Oplays(board, n, 'X');
+            printBoard(board);
+            if(playerOWins(board,n, 'X')==true){
+                IBIO.output("Player X Wins!");
+                System.exit(0);
+            }
+            if (BoardNotFull(board, n) == false) {
+                IBIO.output("Game Ended: Tie");
+                System.exit(0);
+            }
+        }
 
 
-            //char[][] board = new char[3][3];
+        //char[][] board = new char[3][3];
    /*     char[][] board= {	{ '1', '2', '3' },
                 { '4', '5', '6' },
                 { '7', '8', '9' }
@@ -279,6 +279,5 @@ public class TicTacToe {
 		printColumn(board2, 5);
 		printColumn(board2, 9);
 */
-        }
     }
-
+}
