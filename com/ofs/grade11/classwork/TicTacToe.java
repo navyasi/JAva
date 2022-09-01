@@ -251,34 +251,6 @@ public class TicTacToe {
                 }
             }
 
-
-            //char[][] board = new char[3][3];
-   /*     char[][] board= {	{ '1', '2', '3' },
-                { '4', '5', '6' },
-                { '7', '8', '9' }
-        };
-
-        printBoard(board);
-        System.out.println();
-
-        char[][] board2= {	{ '1', '2', '3', '4', '5' },
-                { '6', '7', '8', '9', 'A' },
-                { 'B', 'C', 'D', 'E', 'F' },
-                { 'G', 'H', 'I', 'J', 'K' },
-                { 'L', 'M', 'N', 'O', 'P' }
-        };
-
-        printBoard(board2);
-        System.out.println();
-
-        System.out.println("\nPrinting rows 3 & 9");
-        System.out.println( printRow(board2, 3) );
-        System.out.println( printRow(board2, 9) );
-
-		System.out.println("\nPrinting columns 5 & 9");
-		printColumn(board2, 5);
-		printColumn(board2, 9);
-*/
         }
     }
 
