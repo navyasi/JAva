@@ -25,7 +25,7 @@ public class Circle extends Shape {
     public void setPI(double PI) {
         this.PI = PI;
     }
-    public double getPerimeter(){ 
+    public double getPerimeter(){
         double perimeter = 1000*Math.PI*radius*2;
         int a = (int)perimeter;
         double b = (double)a/1000;
